@@ -90,6 +90,20 @@ tab:Button("Spawn all guns", function()
     
 end)
 
+tab:Button("Spawn all DSI", function()
+    local items = game:GetService("Teams")["Dienst Speciale Interventies"]
+
+    -- Define the action you want to perform on each item
+    local action = "Change"
+    
+    -- Loop through each item in the table and call the :FireServer method
+    for _, item in pairs(items:GetChildren()) do
+        local args = { [1] = action, [2] = item.Name, [3] = "Inv" }
+        game:GetService("ReplicatedStorage").Inventory:FireServer(unpack(args))
+    end
+    
+end)
+
 tab:Textbox("Spawn 1 by name",true, function(t)
     local args = { [1] = "Change", [2] = t, [3] = "Inv" }
     game:GetService("ReplicatedStorage").Inventory:FireServer(unpack(args))
