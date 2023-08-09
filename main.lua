@@ -56,7 +56,13 @@ end)
 localtab:Button("Vanish Tool", function()
 loadstring(game:HttpGet("https://pastebin.com/raw/Ep7QB76P"))()
 end)
-
+                                        
+localtab:Textbox("TP To Player",true, function(t)
+    players = game:GetService("Players")
+    targetPlayer = players:FindFirstChild(t)
+    players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
+end)
+                                        
 tab:Button("Print every gun name", function()
 local replicatedStorage = game:GetService("ReplicatedStorage").Items
 
